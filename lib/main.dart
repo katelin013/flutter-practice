@@ -14,11 +14,65 @@ class MyApp extends StatelessWidget {
               appBar: AppBar(
                   title: Text('FlutterExample'),
               ),
-              body: SwitchPage(),
+              body: AlertPage(),
           )
         );
     }
 }
+
+/// AlertDialog
+class AlertPage extends StatelessWidget{
+    @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Center(
+        child: RaisedButton(
+            child: Text('Show alertdialog'),
+            onPressed: (){
+                showAlert(context);
+            },
+        ),
+    );
+  }
+}
+
+Future<void> showAlert(BuildContext context){
+    return showDialog<void>(
+        context: context,
+        builder: (BuildContext context){
+            return AlertDialog(
+                title: Text('TestTitle'),
+                content: const Text('TestContent'),
+                actions: <Widget>[
+                    FlatButton(
+                        child: Text('Confirm'),
+                        onPressed: (){
+                            Navigator.of(context).pop();
+                        },
+                    )
+                ],
+            );
+        },
+    );
+}
+
+/// SnackBarWidget
+class SnackBarWidget extends StatelessWidget {
+    @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Center(
+        child: RaisedButton(
+            child: Text('Show snackbar message'),
+            onPressed: (){
+                final snackBar = new SnackBar(content: new Text('Show Message'));
+                Scaffold.of(context).showSnackBar(snackBar);
+            },
+        )
+    );
+  }
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Switch Page
