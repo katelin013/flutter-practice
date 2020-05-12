@@ -7,3 +7,7 @@ export 'widget_image.dart';
 export 'widget_button.dart';
 export 'widget_row.dart';
 export 'widget_container.dart';
+export 'widget_tab_bar.dart';
+export 'widget_drawer.dart';
+export 'widget_stack.dart';
+export 'widget_listview.dart';

@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
 class ItemSelectWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    final functions = [BottomNavigationBarWidget(), AlertPage(), SnackBarWidget(), SwitchPage(), TextFieldWidget(), ImageWidget(), ButtonWidget(), RowWidget(), ContainerWidget()];
+    final functions = [ ListViewWidget(), WidgetStack(), DrawerWidget(), TabBarWidget(), BottomNavigationBarWidget(), AlertPage(), SnackBarWidget(), SwitchPage(), TextFieldWidget(), ImageWidget(), ButtonWidget(), RowWidget(), ContainerWidget()];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: List.generate(functions.length, (index) {
