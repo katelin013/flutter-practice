@@ -1,8 +1,16 @@
-# Flutter widget example
+# flutterwidgetexample
 
-Flutter 基本元件示範
+A new Flutter application.
 
 ## Getting Started
 
-參考 :
-HKT 線上教室 : https://ithelp.ithome.com.tw/users/20096484/ironman/2699
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
