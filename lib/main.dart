@@ -14,29 +14,114 @@ class MyApp extends StatelessWidget {
               appBar: AppBar(
                   title: Text('FlutterExample'),
               ),
-              body: AlertPage(),
+              body: ItemSelectWidget(),
           )
         );
     }
 }
 
-/// AlertDialog
-class AlertPage extends StatelessWidget{
+
+class ItemSelectWidget extends StatelessWidget{
     @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Center(
-        child: RaisedButton(
-            child: Text('Show alertdialog'),
-            onPressed: (){
-                showAlert(context);
-            },
-        ),
+    return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+            RaisedButton(
+                child: Text('AlertPage'),
+                onPressed: (){
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => AlertPage())
+                    );
+                },
+            ),
+            RaisedButton(
+                child: Text('SnackBarWidget'),
+                onPressed: (){
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => SnackBarWidget())
+                    );
+                },
+            ),
+            RaisedButton(
+                child: Text('SwitchPage'),
+                onPressed: (){
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => SwitchPage())
+                    );
+                },
+            ),
+            RaisedButton(
+                child: Text('TextFieldWidget'),
+                onPressed: (){
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => TextFieldWidget())
+                    );
+                },
+            ),
+            RaisedButton(
+                child: Text('ImageWidget'),
+                onPressed: (){
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => ImageWidget())
+                    );
+                },
+            ),
+            RaisedButton(
+                child: Text('ButtonWidget'),
+                onPressed: (){
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => ButtonWidget())
+                    );
+                },
+            ),
+            RaisedButton(
+                child: Text('RowWidget'),
+                onPressed: (){
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => RowWidget())
+                    );
+                },
+            ),
+            RaisedButton(
+                child: Text('ContainerWidget'),
+                onPressed: (){
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => ContainerWidget())
+                    );
+                },
+            ),
+        ],
     );
   }
 }
 
-Future<void> showAlert(BuildContext context){
+/// AlertDialog
+class AlertPage extends StatelessWidget{
+    @override
+    Widget build(BuildContext context) {
+    // TODO: implement build
+        return new Scaffold(
+            appBar: AppBar(
+                title: Text('TextFieldWidget'),
+            ),
+            body: Center(
+                child: RaisedButton(
+                    child: Text('Show alertdialog'),
+                    onPressed: () async {
+                        final ConfirmAction action = await confirmDialog(context);
+                        Toast.show("Click action : $action", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+                    },
+                ),
+            )
+        );
+    }
+}
+
+enum ConfirmAction { ACCEPT, CANCEL }
+
+Future<ConfirmAction> confirmDialog(BuildContext context){
     return showDialog<void>(
         context: context,
         builder: (BuildContext context){
@@ -47,7 +132,13 @@ Future<void> showAlert(BuildContext context){
                     FlatButton(
                         child: Text('Confirm'),
                         onPressed: (){
-                            Navigator.of(context).pop();
+                            Navigator.of(context).pop(ConfirmAction.ACCEPT);
+                        },
+                    ),
+                    FlatButton(
+                        child: Text('Cancel'),
+                        onPressed: (){
+                            Navigator.of(context).pop(ConfirmAction.CANCEL);
                         },
                     )
                 ],
@@ -59,16 +150,20 @@ Future<void> showAlert(BuildContext context){
 /// SnackBarWidget
 class SnackBarWidget extends StatelessWidget {
     @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return Center(
-        child: RaisedButton(
-            child: Text('Show snackbar message'),
-            onPressed: (){
-                final snackBar = new SnackBar(content: new Text('Show Message'));
-                Scaffold.of(context).showSnackBar(snackBar);
-            },
-        )
+    Widget build(BuildContext context) {
+    return new Scaffold(
+        appBar: AppBar(
+            title: Text('TextFieldWidget'),
+        ),
+        body: Center(
+            child: RaisedButton(
+                child: Text('Show snackbar message'),
+                onPressed: (){
+                    final snackBar = new SnackBar(content: new Text('Show Message'));
+                    Scaffold.of(context).showSnackBar(snackBar);
+                },
+            )
+        ),
     );
   }
 }
@@ -82,17 +177,21 @@ class SwitchPage extends StatelessWidget {
     Product product = new Product("product_name", "product_desc", 100);
     @override
     Widget build(BuildContext context) {
-        print("kayle build test");
-        return Center(
-            child: RaisedButton(
-                child: Text('跳到下一頁'),
-                onPressed: (){
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => NextPage(product: product))
-                    );
-                },
+        return new Scaffold(
+            appBar: AppBar(
+                title: Text('TextFieldWidget'),
             ),
-    );
+            body: Center(
+                child: RaisedButton(
+                    child: Text('跳到下一頁'),
+                    onPressed: (){
+                        Navigator.push(
+                            context, MaterialPageRoute(builder: (context) => NextPage(product: product))
+                        );
+                    },
+                ),
+            )
+        );
   }
 }
 
@@ -147,21 +246,26 @@ class TextFieldWidget extends StatelessWidget {
     final TextEditingController myController = new TextEditingController();
     @override
     Widget build(BuildContext context) {
-        return Center(
-            child: Column(
-                children: <Widget>[
-                    TextField(
-                        controller: myController,
-                        decoration: InputDecoration(hintText: "Please input.."),
-                    ),
-                    RaisedButton(
-                        child: Text("Toast input"),
-                        onPressed: (){
-                            FocusScope.of(context).unfocus();
-                            Toast.show(myController.text, context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
-                        },
-                    )
-                ],
+        return new Scaffold(
+            appBar: AppBar(
+                title: Text('TextFieldWidget'),
+            ),
+            body: Center(
+                child: Column(
+                    children: <Widget>[
+                        TextField(
+                            controller: myController,
+                            decoration: InputDecoration(hintText: "Please input.."),
+                        ),
+                        RaisedButton(
+                            child: Text("Toast input"),
+                            onPressed: (){
+                                FocusScope.of(context).unfocus();
+                                Toast.show(myController.text, context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+                            },
+                        )
+                    ],
+                ),
             )
         );
     }
@@ -173,9 +277,16 @@ class TextFieldWidget extends StatelessWidget {
 class ImageWidget extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
-        return Center(
-            child: Center(child: Image.asset('images/flutter-logo.png')) //從本地端取圖
-//            child: Center(child: Image.network('https://flutter.dev/images/flutter-logo-sharing.png'))  //讀取網路圖片
+        return new Scaffold(
+            appBar: AppBar(
+            title: Text('TextFieldWidget'),
+        ),
+            body: Center(
+                child: Center(
+                child: Center(child: Image.asset('images/flutter-logo.png')) //從本地端取圖
+//              child: Center(child: Image.network('https://flutter.dev/images/flutter-logo-sharing.png'))  //讀取網路圖片
+                ),
+            )
         );
     }
 }
@@ -185,15 +296,20 @@ class ImageWidget extends StatelessWidget {
 class ButtonWidget extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
-        return Center(
+        return new Scaffold(
+            appBar: AppBar(
+            title: Text('TextFieldWidget'),
+        ),
+            body: Center(
             child: RaisedButton(
-                child: Text('Button'), // change it to sign-in
-                textColor: Colors.white,
-                color: Colors.green,
-                disabledColor: Colors.blue,
-                onPressed: (){
-                    Toast.show("Toast plugin app", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
-                },
+                    child: Text('Button'), // change it to sign-in
+                    textColor: Colors.white,
+                    color: Colors.green,
+                    disabledColor: Colors.blue,
+                    onPressed: (){
+                        Toast.show("Toast plugin app", context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
+                    },
+                )
             )
         );
     }
@@ -203,25 +319,30 @@ class ButtonWidget extends StatelessWidget {
 class RowWidget extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
-        return Row(
-            // X 軸對齊方式
-            mainAxisAlignment: MainAxisAlignment.center,
-            // Y 軸對齊方式
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-                Container(
-                    color: Colors.amber,
-                    child: Text('1', style: TextStyle(fontSize: 100))
-                ),
-                Container(
-                    color: Colors.red,
-                    child: Text('2', style: TextStyle(fontSize: 100))
-                ),
-                Container(
-                    color: Colors.green,
-                    child: Text('3', style: TextStyle(fontSize: 100))
-                ),
-            ],
+        return new Scaffold(
+            appBar: AppBar(
+                title: Text('TextFieldWidget'),
+            ),
+            body: Row(
+                // X 軸對齊方式
+                mainAxisAlignment: MainAxisAlignment.center,
+                // Y 軸對齊方式
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                    Container(
+                        color: Colors.amber,
+                        child: Text('1', style: TextStyle(fontSize: 100))
+                    ),
+                    Container(
+                        color: Colors.red,
+                        child: Text('2', style: TextStyle(fontSize: 100))
+                    ),
+                    Container(
+                        color: Colors.green,
+                        child: Text('3', style: TextStyle(fontSize: 100))
+                    ),
+                ],
+            )
         );
     }
 }
@@ -236,16 +357,21 @@ class RowWidget extends StatelessWidget {
 class ContainerWidget extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
-    return Center(
-            child: Container(
-                child: Text('First Flutter App',
-                style: TextStyle(color: Colors.white),),
-                color: Colors.red,
-                alignment: Alignment.center,
-                constraints: BoxConstraints(
-                    maxWidth: 300, maxHeight: 300, minWidth: 50, minHeight: 50
-                ),
-                margin: EdgeInsets.all(100),
+        return new Scaffold(
+            appBar: AppBar(
+                title: Text('TextFieldWidget'),
+            ),
+            body: Center(
+                child: Container(
+                    child: Text('First Flutter App',
+                        style: TextStyle(color: Colors.white),),
+                    color: Colors.red,
+                    alignment: Alignment.center,
+                    constraints: BoxConstraints(
+                        maxWidth: 300, maxHeight: 300, minWidth: 50, minHeight: 50
+                    ),
+                    margin: EdgeInsets.all(100),
+                )
             )
         );
     }
