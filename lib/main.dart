@@ -1,14 +1,6 @@
 // 載入 material 庫
 import 'package:flutter/material.dart';
-import 'package:flutterwidgetexample/widget/widget_bottom_navigation_bar.dart';
-import 'package:flutterwidgetexample/widget/widget_alert_page.dart';
-import 'package:flutterwidgetexample/widget/widget_snack_bar.dart';
-import 'package:flutterwidgetexample/widget/widget_switch_page.dart';
-import 'package:flutterwidgetexample/widget/widget_text_field.dart';
-import 'package:flutterwidgetexample/widget/widget_image.dart';
-import 'package:flutterwidgetexample/widget/widget_button.dart';
-import 'package:flutterwidgetexample/widget/widget_row.dart';
-import 'package:flutterwidgetexample/widget/widget_container.dart';
+import 'package:flutterwidgetexample/widget/widget.dart';
 
 void main(){
   runApp(MyApp());
