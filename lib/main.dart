@@ -27,82 +27,19 @@ class MyApp extends StatelessWidget {
 class ItemSelectWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
+    final functions = [BottomNavigationBarWidget(), AlertPage(), SnackBarWidget(), SwitchPage(), TextFieldWidget(), ImageWidget(), ButtonWidget(), RowWidget(), ContainerWidget()];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        RaisedButton(
-          child: Text('BottomNavigationBar'),
-          onPressed: (){
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => BottomNavigationBarWidget())
-            );
-          },
-        ),
-        RaisedButton(
-          child: Text('AlertPage'),
-          onPressed: (){
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => AlertPage())
-            );
-          },
-        ),
-        RaisedButton(
-          child: Text('SnackBarWidget'),
-          onPressed: (){
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => SnackBarWidget())
-            );
-          },
-        ),
-        RaisedButton(
-          child: Text('SwitchPage'),
-          onPressed: (){
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => SwitchPage())
-            );
-          },
-        ),
-        RaisedButton(
-          child: Text('TextFieldWidget'),
-          onPressed: (){
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => TextFieldWidget())
-            );
-          },
-        ),
-        RaisedButton(
-          child: Text('ImageWidget'),
-          onPressed: (){
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => ImageWidget())
-            );
-          },
-        ),
-        RaisedButton(
-          child: Text('ButtonWidget'),
-          onPressed: (){
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => ButtonWidget())
-            );
-          },
-        ),
-        RaisedButton(
-          child: Text('RowWidget'),
-          onPressed: (){
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => RowWidget())
-            );
-          },
-        ),
-        RaisedButton(
-          child: Text('ContainerWidget'),
-          onPressed: (){
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => ContainerWidget())
-            );
-          },
-        ),
-      ],
+      children: List.generate(functions.length, (index) {
+          return RaisedButton(
+            child: Text(functions[index].toString()),
+            onPressed: (){
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => functions[index])
+              );
+            },
+          );
+      }),
     );
   }
 }
