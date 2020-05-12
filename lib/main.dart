@@ -20,11 +20,10 @@ class MyApp extends StatelessWidget {
     }
 }
 
-
+/// 將所有的 example 用一個 column 包
 class ItemSelectWidget extends StatelessWidget{
     @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
+    Widget build(BuildContext context) {
     return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -97,11 +96,12 @@ class ItemSelectWidget extends StatelessWidget{
   }
 }
 
+
+
 /// AlertDialog
 class AlertPage extends StatelessWidget{
     @override
     Widget build(BuildContext context) {
-    // TODO: implement build
         return new Scaffold(
             appBar: AppBar(
                 title: Text('TextFieldWidget'),
@@ -153,7 +153,7 @@ class SnackBarWidget extends StatelessWidget {
     Widget build(BuildContext context) {
     return new Scaffold(
         appBar: AppBar(
-            title: Text('TextFieldWidget'),
+            title: Text('SnackBarWidget'),
         ),
         body: Center(
             child: RaisedButton(
@@ -179,7 +179,7 @@ class SwitchPage extends StatelessWidget {
     Widget build(BuildContext context) {
         return new Scaffold(
             appBar: AppBar(
-                title: Text('TextFieldWidget'),
+                title: Text('SwitchPage'),
             ),
             body: Center(
                 child: RaisedButton(
@@ -279,7 +279,7 @@ class ImageWidget extends StatelessWidget {
     Widget build(BuildContext context) {
         return new Scaffold(
             appBar: AppBar(
-            title: Text('TextFieldWidget'),
+            title: Text('ImageWidget'),
         ),
             body: Center(
                 child: Center(
@@ -298,7 +298,7 @@ class ButtonWidget extends StatelessWidget {
     Widget build(BuildContext context) {
         return new Scaffold(
             appBar: AppBar(
-            title: Text('TextFieldWidget'),
+            title: Text('ButtonWidget'),
         ),
             body: Center(
             child: RaisedButton(
@@ -321,7 +321,7 @@ class RowWidget extends StatelessWidget {
     Widget build(BuildContext context) {
         return new Scaffold(
             appBar: AppBar(
-                title: Text('TextFieldWidget'),
+                title: Text('RowWidget'),
             ),
             body: Row(
                 // X 軸對齊方式
@@ -359,7 +359,7 @@ class ContainerWidget extends StatelessWidget {
     Widget build(BuildContext context) {
         return new Scaffold(
             appBar: AppBar(
-                title: Text('TextFieldWidget'),
+                title: Text('ContainerWidget'),
             ),
             body: Center(
                 child: Container(
