@@ -25,25 +25,27 @@ class MyApp extends StatelessWidget {
 class ItemSelectWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    final functions = [ ProviderSample(), SpSample(), TableViewWidget(), GridViewWidget(), ListViewWidget(), WidgetStack(), DrawerWidget(), TabBarWidget(), BottomNavigationBarWidget(), AlertPage(), SnackBarWidget(), SwitchPage(), TextFieldWidget(), ImageWidget(), ButtonWidget(), RowWidget(), ContainerWidget()];
-    return SingleChildScrollView(
-        child: Center(
-            child: Column(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: List.generate(functions.length, (index) {
-                    return RaisedButton(
-                        child: Text(functions[index].toString()),
-                        onPressed: (){
-                            Navigator.push(
-                                context, MaterialPageRoute(builder: (context) => functions[index])
-                            );
-                        },
-                    );
-                }),
-            )
+    final functions = [ ContainerWidget(), RowWidget(), ButtonWidget(), ImageWidget(), TextFieldWidget(), SwitchPage(),
+        SnackBarWidget(), AlertPage(), BottomNavigationBarWidget(), TabBarWidget(), DrawerWidget(), WidgetStack(),
+        ListViewWidget(), GridViewWidget(), TableViewWidget(), SpSample(), ProviderSample()];
+    return Center(
+        child: GridView.count(
+            crossAxisCount: 3,
+            padding: const EdgeInsets.all(4.0),
+            mainAxisSpacing: 6.0,
+            crossAxisSpacing: 4.0,
+            children: new List.generate(functions.length, (index) {
+                return RaisedButton(
+                    child: Text(functions[index].toString().replaceAll("Widget", "")),
+                    padding: const EdgeInsets.all(10.0),
+                    onPressed: (){
+                        Navigator.push(
+                            context, MaterialPageRoute(builder: (context) => functions[index])
+                        );
+                    },
+                );
+            }),
         )
-
     );
   }
 }
