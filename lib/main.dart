@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterwidgetexample/storage/providerSample.dart';
 import 'package:flutterwidgetexample/storage/sharedPreferenceSample.dart';
 import 'package:flutterwidgetexample/widget/widget.dart';
+import 'package:flutterwidgetexample/api/get_weather_data.dart';
 
 void main(){
   runApp(MyApp());
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
 class ItemSelectWidget extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    final functions = [ ContainerWidget(), RowWidget(), ButtonWidget(), ImageWidget(), TextFieldWidget(), SwitchPage(),
+    final functions = [ GetWeatherData(), ContainerWidget(), RowWidget(), ButtonWidget(), ImageWidget(), TextFieldWidget(), SwitchPage(),
         SnackBarWidget(), AlertPage(), BottomNavigationBarWidget(), TabBarWidget(), DrawerWidget(), WidgetStack(),
         ListViewWidget(), GridViewWidget(), TableViewWidget(), SpSample(), ProviderSample()];
     return Center(

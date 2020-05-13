@@ -31,7 +31,8 @@ dependencies:
   shared_preferences: '>=0.5.7+2 <2.0.0'
   provider: ^4.1.1
   english_words: ^3.1.0
-
+  http: ^0.12.1
+  dio: 3.0.9
 
 dev_dependencies:
   flutter_test:
